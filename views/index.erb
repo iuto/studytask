@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>タイトル</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://kit.fontawesome.com/2669bb582a.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+        <div class="header-content">
+            <div class="studytask">
+                <img src="/images/studytask.png">
+            </div>
+                <div class="task-button">
+                    <p><a href="#list">タスク一覧</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+        <form action="/tasks" method="post">
+            <h2>タスクを作成する</h2>
+            <div class="add">
+                    <input type="text" name="title" placeholder="英検2級でる順パス単">
+                    <input type="text" name="start_date" placeholder="2023/05/23"><span>から</span>
+                    <input type="text" name="due_date" placeholder="2023/06/23"><span>まで</span>
+                    <input type="text" name="days" placeholder="31"><span>日間</span>
+                <div class="days-container">
+                    <label class="monday"><input type="checkbox" name="mon"><span>月曜</span></label>
+                    <label><input type="checkbox" name="tue"><span>火曜</span></label>
+                    <label><input type="checkbox" name="wed"><span>水曜</span></label>
+                    <label><input type="checkbox" name="thu"><span>木曜</span></label>
+                    <label><input type="checkbox" name="fri"><span>金曜</span></label>
+                    <label><input type="checkbox" name="sat"><span>土曜</span></label>
+                    <label><input type="checkbox" name="sun"><span>日曜</span></label>
+                </div>
+                    <input type="text" name="amount" placeholder="50">
+                    <input type="text" name="things" placeholder="単語"><span>目から</span>
+                    <input type="text" name="every" placeholder="50"><span>ずつ進める</span><br>
+                    <input type="text" name="subject" placeholder="英語">
+                    <input type="text" name="activity" placeholder="単語暗記">
+                <select class="load" name="list">
+                    <% List.all.each do |list| %>
+                        <option value="<%= list.id %>"><%= list.name %></option>
+                    <% end %>
+                </select><br>
+                <input type="text" name="after" placeholder="5"><span>日後に復習する</span>
+                <input type="submit" name="add" value="タスクを追加">
+            </div>
+        </form>
+    </div>
+	<div>
+	<!--div class="container">
+	<% if !current_user.nil? %>
+        <li>こんにちは、<%= current_user.name %>さん</li>
+        <li><a href="/signout">ログアウト</a></li>
+    <% else %>
+        <li>新規ユーザーですか？</li>
+        <li><a href="/signin">ログイン</a></li>
+        <li><a href="/signup">新規登録</a></li>
+    <% end %>
+		<div>
+			<ul>
+				<li><a href="/">トップ</a></li>
+				<li><a href="/tasks/done">done</a></li>
+				<li><a href="/tasks/over">締切過ぎた</a></li>
+				<% @lists.each do |list| %>
+					<li><a href="/index?list=<%= list.id %>"><%= list.name %></a></li>
+				<% end %>
+			</ul>
+		</div-->
+		<h2 id="list">TODOリスト</h2>
+		<div class="table-wrapper">
+		    <table>
+    			<tbody>
+					<% @tasks.each do |task| %>
+					<tr>
+					    <td>
+							<div class="task">
+							    <% unless task.completed %>
+							    <form action="/tasks/<%= task.id %>/done" method="post">
+							        <input class="circle" type="submit" value="　">
+							    </form>
+							    <% else %>
+							    <input class="circle-done" type="submit" value="　">
+							    <% end %>
+							    <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
+							    <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
+							        <button>
+							            <i class="fas fa-trash"></i>
+							        </button>
+							    </form>
+							</div>
+					    </td>
+					</tr>
+					<% end %>
+    				<tr>
+    					<td colspan="7"><a href="/tasks/new">新しいtodo</a></td>
+    				</tr>
+    			</tbody>
+		    </table>
+		</div>
+	</div>
+</div>
+<div class="highlight">
+    <p><a href="/highlight">勉強量を可視化する</a></p>
+</div>
+<footer>
+    <div class="footer-content">
+        <img src="/images/studytask-plus.png">
+        <div class="footer-text">
+            <p class="footer-link"><a href="/top">このサイトについて</a></p>
+            <p class="footer-link"><a href="/signout">ログアウト</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1 @@
+List.create([{name: "負荷A"}, {name: "負荷B"}, {name: "負荷C"}])

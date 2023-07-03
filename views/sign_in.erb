@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>タイトル</title>
+	<link rel="stylesheet" href="css/signin.css">
+	<script src="https://kit.fontawesome.com/2669bb582a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="studytask">
+                <img src="images/studytask.png">
+            </div>
+                <div class="signup-button">
+                    <p><a href="/signup">新規登録</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+<div>
+    <form action="/signin" method="post">
+            <h2>ログイン</h2>
+            <div class="signin">
+                <input name="name" placeholder="名前を入力"><br>
+                <input name="password" type="password" placeholder="パスワードを入力"><br>
+                <input type="submit" value="ログイン">
+            </div>
+    </form>
+</div>
+<footer>
+    <div class="footer-content">
+        <img src="/images/studytask-plus.png">
+        <div class="footer-text">
+            <p class="footer-link"><a href="/top">このサイトについて</a></p>
+            <p class="footer-link"><a href="/signout">ログアウト</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

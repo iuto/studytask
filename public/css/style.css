@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    background: rgba(217, 217, 217, 0.30);
+}
+
+a {
+    text-decoration:none;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.studytask {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.studytask img {
+    width: 250px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 40px;
+    background: #67ADFF;
+    margin: 25px 10px;
+}
+
+.task-button:hover {
+    background: #4fa1ff;
+}
+
+.task-button p {
+    color: white;
+    font-size: 24px;
+}
+
+input[name="title"] {
+    width: 700px;
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    margin: 35px 0 20px 50px;
+    border:none
+}
+
+input[name="start_date"] {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    border:none;
+    margin-left: 50px;
+    margin-right: 5px;
+}
+
+input[name="due_date"] {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    border:none;
+    margin: 0 5 0 5px;
+}
+
+input[name="days"] {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    border:none;
+    margin: 0 5 0 5px;
+}
+
+.days-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.days-container label {
+    width: 80px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.days-container label.monday {
+    margin-left: 50px;
+}
+
+.days-container label input[type="checkbox"] {
+    display: none; 
+}
+
+.days-container label span {
+    font-size: 24px;
+}
+
+input[type="submit"]:hover {
+    background: #4fa1ff;
+}
+
+input[type="submit"]:hover {
+    background: #4fa1ff;
+}
+
+input[name="amount"] {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+    margin-left: 50px;
+}
+
+input[name="things"] {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+    margin-left: 5px;
+}
+    
+input[name="every"] {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+}
+
+input[name="subject"] {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+input[name="activity"] {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+    margin-left: 10px;
+}
+
+input[name="after"] {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    border: none;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.load {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background: #fff;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.60);
+    margin-left: 10px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[name="add"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    border-radius: 40px;
+    background: #67ADFF;
+    margin: 25px 10px;
+    color: #FFF;
+    font-size: 24px;
+    margin: auto;
+    border: none;
+    margin-top: 30px;
+}
+
+.add {
+    width: 800px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.30);
+    align-items:center;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 24px;
+}
+
+input {
+    text-align: center;
+}
+
+input[name="title"] {
+    text-align: left;
+    padding-left: 30px;
+}
+
+h2 {
+    margin: 0 auto;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+span {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-inner {
+    background: rgba(217, 217, 217, 0.30);
+}
+
+.header-inner h1 {
+    padding-left: 30px;
+}
+
+.task {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; /* 追加 */
+    width: 800px;
+    height: 120px;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.30);
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.circle, .circle-done {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 20px;
+    border: none;
+}
+
+.table-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.circle-done {
+    background-color: gray;
+}
+
+.circle {
+    background-color: blue;
+}
+
+.task-content {
+    flex-grow: 1; /* 追加 */
+}
+
+.fa-trash {
+    font-size: 20px;
+    border: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+form.delete-task {
+    margin-right: 30px; /* 追加 */
+    opacity: 0.5;
+}
+
+form.delete-task:hover {
+    opacity: 1.0;
+}
+
+.highlight {
+    width: 800px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.50);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlight a {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+
+.highlight p {
+    text-align: center;
+}
+
+.highlight:hover {
+    background: rgba(217, 217, 217);
+}
+
+footer {
+    margin-top: 300px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.footer-text {
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    
+}
+
+.footer-link {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-link a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-link:first-child {
+    margin-left: 0;
+}
+
+footer img {
+    width: 350px;
+    height: auto;
+    margin-left: 40px;
+    margin-bottom: 50px;
+}

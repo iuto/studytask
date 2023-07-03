@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    width: 100%;
+    height: 100px;
+    background: rgba(217, 217, 217, 0.30);
+}
+
+a {
+    text-decoration:none;
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+    color: black;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.studytask {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.studytask img {
+    width: 250px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-button, .signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 40px;
+    background: #67ADFF;
+    margin: 25px 10px;
+}
+
+.login-button:hover, .signup-button:hover {
+    background: #4fa1ff;
+}
+
+.login-button p, .signup-button p {
+    color: white;
+    font-size: 24px;
+}
+
+.task-ex {
+    text-align: center;
+}
+
+.task-ex h2 {
+    margin-top: 100px;
+    font-size: 36px;
+}
+
+footer {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.footer-text {
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.footer-link {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-link a {
+    color: black;
+    text-decoration: none;
+    margin: 0;
+}
+
+.footer-link:first-child {
+    margin-left: 0;
+}
+
+footer img {
+    width: 350px;
+    height: auto;
+    margin-left: 40px;
+    margin-bottom: 50px;
+}
