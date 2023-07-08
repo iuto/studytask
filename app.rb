@@ -73,16 +73,22 @@ get '/tasks/new' do
 end
 
 post '/tasks' do
-    date = params[:due_date].split('-')
-    list = List.find(params[:list])
-    if Date.valid_date?(date[0].to_i, date[1].to_i, date[2].to_i)
-        current_user.tasks.create(title: params[:title],
-        due_date: Date.parse(params[:due_date]), list_id: list.id)
-        redirect '/index'
-    else
-        redirect '/tasks/new'
+  start_date = Date.parse(params[:start_date])
+  due_date = Date.parse(params[:due_date])
+  list = List.find(params[:list])
+
+  if start_date <= due_date
+    next_date = start_date
+    while next_date <= due_date do
+      current_user.tasks.create(title: params[:title], due_date: next_date, list_id: list.id)
+      next_date = next_date.next_day
     end
+    redirect '/index'
+  else
+    redirect '/tasks/new'
+  end
 end
+
 
 post '/tasks/:id/done' do
     task = Task.find(params[:id])
