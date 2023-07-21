@@ -49,40 +49,72 @@
             </div>
         </form>
     </div>
-	<div>
-		<h2 id="list">TODOリスト</h2>
-		<div class="table-wrapper">
-		    <table>
-    			<tbody>
-					<% @tasks.each do |task| %>
-					<tr>
-					    <td>
-							<div class="task">
-							    <% unless task.completed %>
-							    <form action="/tasks/<%= task.id %>/done" method="post">
-							        <input class="circle" type="submit" value="　">
-							    </form>
-							    <% else %>
-							    <input class="circle-done" type="submit" value="　">
-							    <% end %>
-							    <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
-							    <span class="day00"><%= task.due_date %></span>
-							    <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
-							        <button>
-							            <i class="fas fa-trash"></i>
-							        </button>
-							    </form>
-							</div>
-					    </td>
-					</tr>
-					<% end %>
-    				<tr>
-    					<td colspan="7"><a href="/tasks/new">新しいtodo</a></td>
-    				</tr>
-    			</tbody>
-		    </table>
-		</div>
-	</div>
+<div>
+    <h2 id="list">TODOリスト</h2>
+    <h3>今日のタスク</h3>
+    <div class="table-wrapper">
+        <table>
+            <tbody>
+                <% @tasks_today.each do |task| %>
+                <tr>
+                    <td>
+                        <div class="task">
+                            <% unless task.completed %>
+                            <form action="/tasks/<%= task.id %>/done" method="post">
+                                <input class="circle" type="submit" value="　">
+                            </form>
+                            <% else %>
+                            <input class="circle-done" type="submit" value="　">
+                            <% end %>
+                            <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
+                            <span class="day00"><%= task.due_date %></span>
+                            <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
+                                <button>
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <% end %>
+                <tr>
+                    <td colspan="7"><a href="/tasks/new">新しいtodo</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h3>明日のタスク</h3>
+    <div class="table-wrapper">
+        <table>
+            <tbody>
+                <% @tasks_tomorrow.each do |task| %>
+                <tr>
+                    <td>
+                        <div class="task">
+                            <% unless task.completed %>
+                            <form action="/tasks/<%= task.id %>/done" method="post">
+                                <input class="circle" type="submit" value="　">
+                            </form>
+                            <% else %>
+                            <input class="circle-done" type="submit" value="　">
+                            <% end %>
+                            <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
+                            <span class="day00"><%= task.due_date %></span>
+                            <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
+                                <button>
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <% end %>
+                <tr>
+                    <td colspan="7"><a href="/tasks/new">新しいtodo</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div class="highlight">
     <p><a href="/highlight">勉強量を可視化する</a></p>

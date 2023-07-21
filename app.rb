@@ -26,11 +26,15 @@ end
 get '/index' do
     @lists = List.all
     if current_user.nil?
-        @tasks = Task.none
+        @tasks_today = Task.none
+        @tasks_tomorrow = Task.none
     elsif params[:list].nil? then
-        @tasks = current_user.tasks
+        @tasks_today = current_user.tasks.select(&:due_today?)
+        @tasks_tomorrow = current_user.tasks.select(&:due_tomorrow?)
     else
-        @tasks = List.find(params[:list]).tasks.had_by(current_user)
+        tasks = List.find(params[:list]).tasks.had_by(current_user)
+        @tasks_today = tasks.select(&:due_today?)
+        @tasks_tomorrow = tasks.select(&:due_tomorrow?)
     end
     erb :index
 end

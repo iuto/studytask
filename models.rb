@@ -31,3 +31,16 @@ end
 class List < ActiveRecord::Base
     has_many :tasks
 end
+
+# 日付別表示のために追加
+class Task < ActiveRecord::Base
+    # ...
+
+    def due_today?
+        due_date == Date.today
+    end
+
+    def due_tomorrow?
+        due_date == Date.today + 1
+    end
+end
