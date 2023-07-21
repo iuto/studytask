@@ -35,6 +35,7 @@
                     <label><input type="checkbox" name="exclude_days[]" value="5"><span>金曜</span></label>
                     <label><input type="checkbox" name="exclude_days[]" value="6"><span>土曜</span></label>
                     <label><input type="checkbox" name="exclude_days[]" value="0"><span>日曜</span></label>
+                    <div class="exclusion"><span>を除く</span></div>
                 </div>
                     <input type="text" name="amount" placeholder="50">
                     <input type="text" name="things" placeholder="単語"><span>目から</span>
@@ -49,7 +50,7 @@
             </div>
         </form>
     </div>
-    <h2 id="list">TODOリスト</h2>
+    <h2 id="list"></h2>
       <h3>今日のタスク</h3>
     <div class="table-wrapper">
         <table>
@@ -65,7 +66,7 @@
                             <% else %>
                             <input class="circle-done" type="submit" value="　">
                             <% end %>
-                            <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
+                            <span class="task-content"><%= CGI.escapeHTML(task.title).gsub("\n", "<br>") %></span>
                             <span class="day00"><%= task.due_date %></span>
                             <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
                                 <button>
@@ -97,7 +98,7 @@
                             <% else %>
                             <input class="circle-done" type="submit" value="　">
                             <% end %>
-                            <span class="task-content"><%= CGI.escapeHTML(task.title) %></span> <!-- class追加 -->
+                            <span class="task-content"><%= CGI.escapeHTML(task.title).gsub("\n", "<br>") %></span>
                             <span class="day00"><%= task.due_date %></span>
                             <form action="/tasks/<%= task.id %>/delete" method="post" class="delete-task"> <!-- class追加 -->
                                 <button>

@@ -127,6 +127,10 @@ input[name="days"] {
     font-size: 24px;
 }
 
+.exclusion {
+    margin-top: 10px;
+}
+
 input[type="submit"]:hover {
     background: #4fa1ff;
 }
@@ -289,6 +293,7 @@ span {
     background-color: gray !important;
 }
 
+
 .circle {
     background-color: #67ADFF;
 }
@@ -390,4 +395,13 @@ h3 {
     justify-content: center;
     align-items: center;
     height: 80px;
+    font-size: 30px;
+}
+
+.task-range {
+  font-size: 18px;
+}
+
+.table-wrapper {
+    margin-top: 0; /* 余白を0に設定する */
 }

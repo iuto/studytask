@@ -80,24 +80,51 @@ post '/tasks' do
   start_date = Date.parse(params[:start_date])
   due_date = Date.parse(params[:due_date])
   list = List.find(params[:list])
+  amount = params[:amount].to_i
+  things = params[:things]
+  every = params[:every].to_i
 
   exclude_days = params['exclude_days'].map(&:to_i) if params['exclude_days']
 
   if start_date <= due_date
+    current_amount = amount
     next_date = start_date
     while next_date <= due_date do
       unless exclude_days&.include?(next_date.wday)
-        current_user.tasks.create(title: params[:title], due_date: next_date, list_id: list.id)
+        title = params[:title]
+        if things.present? && amount.positive? && every.positive?
+          title += "\n"
+          if amount == every
+            title += "（#{current_amount}#{things}目）"
+          else
+            title += "（#{current_amount}#{things}目から#{current_amount + every - 1}#{things}目まで）"
+          end
+        end
+
+        current_user.tasks.create(title: title, due_date: next_date, list_id: list.id)
+        current_amount += every
 
         # 復習タスクの作成
         review_days = params[:after].to_i
         if review_days > 0
+          review_title = params[:title]
+          if things.present? && amount.positive? && every.positive?
+            review_title += "\n"
+            if amount == every
+              review_title += "（#{current_amount}#{things}目の復習）"
+            else
+              review_title += "（#{current_amount}#{things}目から#{current_amount + every - 1}#{things}目までの復習）"
+            end
+          end
+
           review_date = next_date + review_days
-          current_user.tasks.create(title: "#{params[:title]}（復習）", due_date: review_date, list_id: list.id)
+          current_user.tasks.create(title: review_title, due_date: review_date, list_id: list.id)
         end
       end
+
       next_date = next_date.next_day
     end
+
     redirect '/index'
   else
     redirect '/tasks/new'
