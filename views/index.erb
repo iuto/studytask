@@ -39,11 +39,11 @@
                     <input type="text" name="amount" placeholder="50">
                     <input type="text" name="things" placeholder="単語"><span>目から</span>
                     <input type="text" name="every" placeholder="50"><span>ずつ進める</span><br>
-                <select class="load" name="list">
+                    <select class="load" name="list">
                     <% List.all.each do |list| %>
                         <option value="<%= list.id %>"><%= list.name %></option>
                     <% end %>
-                </select><br>
+                </select>
                 <input type="text" name="after" placeholder="5"><span>日後に復習する</span>
                 <input type="submit" name="add" value="タスクを追加">
             </div>

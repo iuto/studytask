@@ -28,7 +28,7 @@ get '/index' do
     if current_user.nil?
         @tasks_today = Task.none
         @tasks_tomorrow = Task.none
-    elsif params[:list].nil? then
+    elsif params[:list].nil?
         @tasks_today = current_user.tasks.select(&:due_today?)
         @tasks_tomorrow = current_user.tasks.select(&:due_tomorrow?)
     else
@@ -86,8 +86,15 @@ post '/tasks' do
   if start_date <= due_date
     next_date = start_date
     while next_date <= due_date do
-      unless exclude_days&.include?(next_date.wday)  # 追加: 特定の曜日を除外
+      unless exclude_days&.include?(next_date.wday)
         current_user.tasks.create(title: params[:title], due_date: next_date, list_id: list.id)
+
+        # 復習タスクの作成
+        review_days = params[:after].to_i
+        if review_days > 0
+          review_date = next_date + review_days
+          current_user.tasks.create(title: "#{params[:title]}（復習）", due_date: review_date, list_id: list.id)
+        end
       end
       next_date = next_date.next_day
     end
@@ -145,4 +152,23 @@ end
 
 get '/top' do
     erb :top
+end
+
+# 復習タスクの作成
+def create_review_task(original_task, review_days)
+  review_date = Date.today + review_days
+  reviewed_task = original_task.dup
+  reviewed_task.title = "#{original_task.title}（復習）"
+  reviewed_task.due_date = review_date
+  reviewed_task.save
+end
+
+get '/tasks/review' do
+    @lists = List.all
+    if current_user
+        @tasks_review = current_user.tasks.where("due_date > ?", Date.today).where("due_date <= ?", Date.today + 1)
+    else
+        @tasks_review = Task.none
+    end
+    erb :review_tasks
 end

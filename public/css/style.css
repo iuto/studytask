@@ -161,33 +161,13 @@ input[name="every"] {
     border: none;
 }
 
-input[name="subject"] {
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-    background: #FFF;
-    border: none;
-    margin-top: 50px;
-    margin-left: 50px;
-}
-
-input[name="activity"] {
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-    background: #FFF;
-    border: none;
-    margin-left: 10px;
-}
-
 input[name="after"] {
     width: 100px;
     height: 50px;
     border-radius: 20px;
     background: #FFF;
     border: none;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 10px;
 }
 
 .load {
@@ -198,7 +178,8 @@ input[name="after"] {
     background: #fff;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.60);
-    margin-left: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -213,17 +194,16 @@ input[name="add"] {
     height: 50px;
     border-radius: 40px;
     background: #67ADFF;
-    margin: 25px 10px;
     color: #FFF;
     font-size: 24px;
     margin: auto;
-    border: none;
     margin-top: 30px;
+    border: none;
 }
 
 .add {
     width: 800px;
-    height: 600px;
+    height: 500px;
     flex-shrink: 0;
     border-radius: 40px;
     background: rgba(217, 217, 217, 0.30);
@@ -305,8 +285,12 @@ span {
     background-color: gray;
 }
 
+.circle-done:hover {
+    background-color: gray !important;
+}
+
 .circle {
-    background-color: blue;
+    background-color: #67ADFF;
 }
 
 .task-content {
@@ -374,7 +358,6 @@ footer {
     text-align: left;
     margin-left: 50px;
     margin-bottom: 30px;
-    
 }
 
 .footer-link {
@@ -400,4 +383,11 @@ footer img {
 
 input[type="checkbox"]:checked + span {
     background-color: #ccc;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
 }

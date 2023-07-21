@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>タイトル</title>
-	<link rel="stylesheet" href="css/highlight.css">
-	<script src="https://kit.fontawesome.com/2669bb582a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+    <link rel="stylesheet" href="css/highlight.css">
+    <script src="https://kit.fontawesome.com/2669bb582a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<header>
+    <header>
         <div class="header-content">
             <div class="studytask">
                 <img src="/images/studytask.png">
             </div>
-                <div class="task-button">
-                    <p><a href="/index">タスク一覧</a></p>
-                </div>
+            <div class="task-button">
+                <p><a href="/index">タスク一覧</a></p>
             </div>
         </div>
     </header>
     <h2>ハイライト</h2>
     <div class="highlight">
         <div class="result">
+            <% @total_load = 0 %>
             <% @task_counts.each_with_index do |(list_name, counts), wday| %>
                 <div class="day-container">
                     <div class="loads">
                         <% counts.each do |list_name, count| %>
                             <% display_count = {"負荷A" => 3, "負荷B" => 2, "負荷C" => 1}[list_name] * count %>
+                            <% @total_load += display_count %>
                             <% display_count.times do %>
                                 <div class="load <%= list_name %>"></div>
                             <% end %>
@@ -42,18 +43,25 @@
             <% end %>
         </div>
         <div class="twitter">
-            <p><img class="twitter-icon" src="/images/twitter.png"><a href="">Twitterでつぶやく</a></p>
+            <p><img class="twitter-icon" src="/images/twitter.png">
+            <a href="https://twitter.com/intent/tweet?text=今週は%20<%= @total_load %>%20負荷の勉強をしました。">Twitterでつぶやく</a></p>
         </div>
     </div>
 
     <footer>
-    <div class="footer-content">
-        <img src="/images/studytask-plus.png">
-        <div class="footer-text">
-            <p class="footer-link"><a href="/top">このサイトについて</a></p>
-            <p class="footer-link"><a href="/signout">ログアウト</a></p>
+        <div class="footer-content">
+            <img src="/images/studytask-plus.png">
+            <div class="footer-text">
+                <p class="footer-link"><a href="/top">このサイトについて</a></p>
+                <p class="footer-link"><a href="/signout">ログアウト</a></p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+    <script>
+        let total_load = "<%= @total_load %>";
+        let twitter_link = document.querySelector('.twitter a');
+        let tweet_text = encodeURIComponent('今週は' + total_load + '負荷の勉強をしました。');
+        twitter_link.href = 'https://twitter.com/intent/tweet?text=' + tweet_text;
+    </script>
 </body>
 </html>
