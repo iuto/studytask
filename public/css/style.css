@@ -397,3 +397,7 @@ footer img {
     margin-left: 40px;
     margin-bottom: 50px;
 }
+
+input[type="checkbox"]:checked + span {
+    background-color: #ccc;
+}

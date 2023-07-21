@@ -81,10 +81,14 @@ post '/tasks' do
   due_date = Date.parse(params[:due_date])
   list = List.find(params[:list])
 
+  exclude_days = params['exclude_days'].map(&:to_i) if params['exclude_days']
+
   if start_date <= due_date
     next_date = start_date
     while next_date <= due_date do
-      current_user.tasks.create(title: params[:title], due_date: next_date, list_id: list.id)
+      unless exclude_days&.include?(next_date.wday)  # 追加: 特定の曜日を除外
+        current_user.tasks.create(title: params[:title], due_date: next_date, list_id: list.id)
+      end
       next_date = next_date.next_day
     end
     redirect '/index'
@@ -92,7 +96,6 @@ post '/tasks' do
     redirect '/tasks/new'
   end
 end
-
 
 post '/tasks/:id/done' do
     task = Task.find(params[:id])
@@ -124,11 +127,20 @@ get '/list' do
 end
 
 get '/highlight' do
-  erb :highlight
-end
-
-get '/highlight' do
-  erb :index
+    @lists = List.all
+    @task_counts = {}
+    if current_user
+        (0..6).each do |wday|
+            @task_counts[wday] = { '負荷A' => 0, '負荷B' => 0, '負荷C' => 0 }
+            current_user.tasks.where(completed: true).each do |task| # 完了したタスクのみ取得
+                if task.due_on?(wday)
+                    list = List.find(task.list_id)
+                    @task_counts[wday][list.name] += 1
+                end
+            end
+        end
+    end
+    erb :highlight
 end
 
 get '/top' do

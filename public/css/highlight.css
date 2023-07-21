@@ -71,22 +71,23 @@ a {
     padding-top: 35px;
 }
 
-.result {
-    width: 700px;
-    height: 350px;
-    border-radius: 20px;
-    background: #FFF;
-    margin-bottom: 10px;
-}
-
 .days-container {
     display: flex;
     justify-content: space-between;
     width: 550px;
 }
 
+.day-container {
+    display: flex;
+    flex-direction: column-reverse; /* 負荷（タスク）を上に、曜日名を下に配置します */
+    align-items: center;
+    width: 100px; /* day-container の幅を設定します */
+}
+
 .day {
-    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     color: rgba(0, 0, 0, 0.60);
     font-size: 24px;
 }
@@ -175,4 +176,54 @@ footer img {
     height: auto;
     margin-left: 40px;
     margin-bottom: 50px;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    height: 350px;
+    border-radius: 20px;
+    background: #FFF;
+    margin-bottom: 20px;
+}
+
+.week {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.wday-name {
+    text-align: center;
+    margin-top: 20px; /* マージンを調整して、.loads と .wday-name の間のスペースを増やします */
+}
+
+.wday-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* 曜日名を下に寄せます */
+    width: 100px;
+}
+
+.wday-name {
+    text-align: center;
+}
+
+.load {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 1px; /* Change this from 'margin: 1px' to 'margin-bottom: 1px' */
+}
+
+.load.負荷A {
+    background-color: #68B7FF;
+}
+
+.load.負荷B {
+    background-color: #68B7FF;
+}
+
+.load.負荷C {
+    background-color: #68B7FF;
 }

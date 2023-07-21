@@ -28,13 +28,13 @@
                     <input type="text" name="start_date" placeholder="2023-05-23"><span>から</span>
                     <input type="text" name="due_date" placeholder="2023-06-23"><span>まで</span>
                 <div class="days-container">
-                    <label class="monday"><input type="checkbox" name="mon"><span>月曜</span></label>
-                    <label><input type="checkbox" name="tue"><span>火曜</span></label>
-                    <label><input type="checkbox" name="wed"><span>水曜</span></label>
-                    <label><input type="checkbox" name="thu"><span>木曜</span></label>
-                    <label><input type="checkbox" name="fri"><span>金曜</span></label>
-                    <label><input type="checkbox" name="sat"><span>土曜</span></label>
-                    <label><input type="checkbox" name="sun"><span>日曜</span></label>
+                    <label class="monday"><input type="checkbox" name="exclude_days[]" value="1"><span>月曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="2"><span>火曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="3"><span>水曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="4"><span>木曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="5"><span>金曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="6"><span>土曜</span></label>
+                    <label><input type="checkbox" name="exclude_days[]" value="0"><span>日曜</span></label>
                 </div>
                     <input type="text" name="amount" placeholder="50">
                     <input type="text" name="things" placeholder="単語"><span>目から</span>
@@ -49,9 +49,8 @@
             </div>
         </form>
     </div>
-<div>
     <h2 id="list">TODOリスト</h2>
-    <h3>今日のタスク</h3>
+      <h3>今日のタスク</h3>
     <div class="table-wrapper">
         <table>
             <tbody>
@@ -83,7 +82,7 @@
             </tbody>
         </table>
     </div>
-    <h3>明日のタスク</h3>
+      <h3>明日のタスク</h3>
     <div class="table-wrapper">
         <table>
             <tbody>

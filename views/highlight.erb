@@ -19,23 +19,34 @@
         </div>
     </header>
     <h2>ハイライト</h2>
-<div class="highlight">
-    <div class="result">
+    <div class="highlight">
+        <div class="result">
+            <% @task_counts.each_with_index do |(list_name, counts), wday| %>
+                <div class="day-container">
+                    <div class="loads">
+                        <% counts.each do |list_name, count| %>
+                            <% display_count = {"負荷A" => 3, "負荷B" => 2, "負荷C" => 1}[list_name] * count %>
+                            <% display_count.times do %>
+                                <div class="load <%= list_name %>"></div>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="week">
+            <% %w[月 火 水 木 金 土 日].each do |wday_name| %>
+                <div class="wday-container">
+                    <div class="wday-name"><%= wday_name %></div>
+                </div>
+            <% end %>
+        </div>
+        <div class="twitter">
+            <p><img class="twitter-icon" src="/images/twitter.png"><a href="">Twitterでつぶやく</a></p>
+        </div>
     </div>
-    <div class="days-container">
-        <div class="day">月</div>
-        <div class="day">火</div>
-        <div class="day">水</div>
-        <div class="day">木</div>
-        <div class="day">金</div>
-        <div class="day">土</div>
-        <div class="day">日</div>
-    </div>
-    <div class="twitter">
-        <p><img class="twitter-icon" src="/images/twitter.png"><a href="">Twitterでつぶやく</a></p>
-    </div>
-</div>
-<footer>
+
+    <footer>
     <div class="footer-content">
         <img src="/images/studytask-plus.png">
         <div class="footer-text">
