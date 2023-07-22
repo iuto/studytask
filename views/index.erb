@@ -12,7 +12,7 @@
 <body>
 	<header>
         <div class="header-content">
-            <div class="studytask">
+            <div class="studytask" link href="#">
                 <img src="/images/studytask.png">
             </div>
                 <div class="task-button">
@@ -40,7 +40,7 @@
                     <input type="text" name="amount" placeholder="50">
                     <input type="text" name="things" placeholder="単語"><span>目から</span>
                     <input type="text" name="every" placeholder="50"><span>ずつ進める</span><br>
-                    <select class="load" name="list">
+                    <select class="load" name="list" onchange="changeColor(this)">
                     <% List.all.each do |list| %>
                         <option value="<%= list.id %>"><%= list.name %></option>
                     <% end %>
@@ -130,3 +130,13 @@
 </footer>
 </body>
 </html>
+<script>
+    function changeColor(hoge){
+        if( hoge.value == 0){
+            hoge.style.color = '';
+        }else{
+            hoge.style.color = 'black'
+            hoge.style.fontWeight = 'bold'
+        }
+    }
+</script>

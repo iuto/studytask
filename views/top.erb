@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyTask</title>
-    <link rel="stylesheet" href="css/style_top.css">
+    <title>タイトル</title>
+    <link rel="stylesheet" href="css/highlight.css">
+    <script src="https://kit.fontawesome.com/2669bb582a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📚</text></svg>">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="studytask">
-                <img src="images/studytask.png">
-            </div>
-            <div class="buttons">
-                <div class="login-button">
-                    <p><a href="/signin">ログイン</a></p>
-                </div>
-                <div class="signup-button">
-                    <p><a href="/signup">新規登録</a></p>
-                </div>
-            </div>
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-2 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-4">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">StudyTask</h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-8 lg:px-16 dark:text-gray-400">StudyTaskは勉強に特化したTODOリストサービスです。<br>誰でも無料でお使いいただけます。</p>
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <a href="/signup" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                新規登録
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+            <a href="/signin" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                ログイン
+            </a>  
         </div>
-    </header>
-    <div class="task-ex">
-        <h2>効率的に勉強のためのタスクを作成</h2>
-        <img src="images/task-ex01.png">
-        <h2>単語暗記・ワークなどの勉強に関するタスク管理に特化</h2>
-        <img src="images/task-ex02.png">
     </div>
+</section>
+
+<div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
+    <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+    <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+    <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
+        <img src="images/screenshots.png" class="dark:hidden w-[272px] h-[572px]" alt="">
+        <img src="images/screenshots.png" class="hidden dark:block w-[272px] h-[572px]" alt="">
+    </div>
+</div>
 </body>
-<footer>
-    <div class="footer-content">
-        <img src="/images/studytask-plus.png">
-        <div class="footer-text">
-            <p class="footer-link"><a href="/top">このサイトについて</a></p>
-            <p class="footer-link"><a href="/signout">ログアウト</a></p>
-        </div>
-    </div>
-</footer>
 </html>
