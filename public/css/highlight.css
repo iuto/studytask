@@ -235,7 +235,7 @@ body {
 }
 
 footer {
-  margin-top: 700px; /* Apply to all viewport sizes by default */
+  margin-top: 1100px; /* Apply to all viewport sizes by default */
 }
 
 @media (max-width: 600px) {

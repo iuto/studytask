@@ -170,3 +170,7 @@ footer img {
     margin-left: 40px;
     margin-bottom: 50px;
 }
+
+footer {
+  margin-top: 1250px; /* Apply to all viewport sizes by default */
+}
