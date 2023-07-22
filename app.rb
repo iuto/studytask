@@ -102,7 +102,6 @@ post '/tasks' do
         end
 
         current_user.tasks.create(title: title, due_date: next_date, list_id: list.id)
-        current_amount += every
 
         # 復習タスクの作成
         review_days = params[:after].to_i
@@ -120,6 +119,8 @@ post '/tasks' do
           review_date = next_date + review_days
           current_user.tasks.create(title: review_title, due_date: review_date, list_id: list.id)
         end
+        # 復習タスク作成後に個数を増やす
+        current_amount += every
       end
 
       next_date = next_date.next_day
