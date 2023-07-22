@@ -8,18 +8,19 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📚</text></svg>">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="studytask">
-                <img src="/images/studytask.png">
+    <div id="content">
+        <header>
+            <div class="header-content">
+                <div class="studytask">
+                    <img src="/images/studytask.png">
+                </div>
+                <div class="task-button">
+                    <p><a href="/index">タスク一覧</a></p>
+                </div>
             </div>
-            <div class="task-button">
-                <p><a href="/index">タスク一覧</a></p>
-            </div>
-        </div>
-    </header>
-    <h2>ハイライト</h2>
-    <div class="highlight">
+        </header>
+        <h2>ハイライト</h2>
+        <div class="highlight">
         <div class="result">
             <% @total_load = 0 %>
             <% @task_counts.each_with_index do |(list_name, counts), wday| %>
@@ -46,23 +47,27 @@
         <div class="twitter">
             <p><img class="twitter-icon" src="/images/twitter.png">
             <a href="https://twitter.com/intent/tweet?text=今週は%20<%= @total_load %>%20負荷の勉強をしました。">Twitterでつぶやく</a></p>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <img src="/images/studytask-plus.png">
-            <div class="footer-text">
-                <p class="footer-link"><a href="/top">このサイトについて</a></p>
-                <p class="footer-link"><a href="/signout">ログアウト</a></p>
             </div>
-        </div>
-    </footer>
+                </div>
+                <footer>
+                    <div class="footer-content">
+                        <img src="/images/studytask-plus.png">
+                        <div class="footer-text">
+                            <p class="footer-link"><a href="/top">このサイトについて</a></p>
+                            <p class="footer-link"><a href="/signout">ログアウト</a></p>
+                        </div>
+                    </div>
+                </footer>
     <script>
         let total_load = "<%= @total_load %>";
         let twitter_link = document.querySelector('.twitter a');
         let tweet_text = encodeURIComponent('今週は' + total_load + '負荷の勉強をしました。');
         twitter_link.href = 'https://twitter.com/intent/tweet?text=' + tweet_text;
+        
+        window.addEventListener('resize', () => {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
     </script>
 </body>
 </html>
